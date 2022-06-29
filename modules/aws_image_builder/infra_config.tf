@@ -1,12 +1,12 @@
 resource "aws_imagebuilder_infrastructure_configuration" "infra_conf" {
   instance_profile_name = aws_iam_instance_profile.ec2_profile.name
-  name                  = "infra_conf"
-  instance_types        = ["t3.micro"]
+  name                  = var.infra_name
+  instance_types        = var.instance_type
 }
 
 
 resource "aws_iam_role" "ec2_profile" {
-  name_prefix = "ec2_profile"
+  name_prefix = var.ec2_profile_name_prefix
 
   assume_role_policy = <<EOF
 {
@@ -26,7 +26,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name_prefix = "ec2_profile"
+  name_prefix = var.ec2_profile_name_prefix
   role        = aws_iam_role.ec2_profile.name
 }
 

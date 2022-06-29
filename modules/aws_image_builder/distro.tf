@@ -1,10 +1,10 @@
 resource "aws_imagebuilder_distribution_configuration" "distro_conf" {
-  name = "local-distribution"
+  name = var.distro_name
 
   distribution {
     ami_distribution_configuration {
-      name = "example-{{ imagebuilder:buildDate }}"
+      name = var.ami_distribution_configuration_name
     }
-    region = "us-east-1"
+    region = var.region
   }
 }
