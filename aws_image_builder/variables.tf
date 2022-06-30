@@ -48,20 +48,16 @@ variable "ami_distribution_configuration_name" {
 
 variable "component_name" {
   type    = string
-  default = "image_component"
 }
 
 variable "component_platform" {
   type    = string
-  default = "Linux"
 }
 
 variable "component_version" {
   type    = string
-  default = "1.0.0"
 }
 
 variable "building_phase_name" {
   type    = string
-  default = "package_installation"
 }
